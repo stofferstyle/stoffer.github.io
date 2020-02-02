@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Java og HTML</title>
+    <link href="https://clwclw-code.github.io/main.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <h1>Lær at lave din egen hjemmeside</h1>
+    <h2>- Det er lettere end du tror</h2>
+    <p>Følg instruktionerne og så får du redskaberne til at skabe din egen hjemmeside</p>
+    <ul>
+	<li>for det første </li>
+        <li>for det andet</li>
+    </ul>
+    <p align="center"> 
+	<!--Dette tegner Canvas'et på hjemmesiden -->
+      <canvas id="mycanvas"></canvas> 
+    </p>
+    
+</body>
+
+
+ <!-- gennemløb alt JavaScript halløjet -->
+ <!-- inkludér  processing.js biblioteket -->
+ <!-- Se https://khanacademy.zendesk.com/hc/en-us/articles/202260404-What-parts-of-ProcessingJS-does-Khan-Academy-support- for forskelle, hvis der er en opdatering, så det ikke virker mere -->
+ <script src="https://cdn.jsdelivr.net/processing.js/1.4.8/processing.min.js"></script> 
+ 
+ <script>
+    var sketchProc = function(processingInstance) {
+     with (processingInstance) {
+        size(400, 400); 
+        frameRate(30);
+        
+        // Programmeringskoden skal være her
+	//Ansigtet
+        fill(255, 255, 0);
+        ellipse(200, 200, 200, 200);
+	//Munden
+        noFill();
+        stroke(0, 0, 0);
+        strokeWeight(10);
+        arc(200, 200, 150, 100, 0, PI);
+	//øjnene
+        fill(0, 0, 0);
+        ellipse(250, 175, 10, 10);
+        ellipse(153, 175, 10, 10);
+    }};
+
+    // hent canvasset som Processing-js vil bruge
+    var canvas = document.getElementById("mycanvas"); 
+    // giv funktionen sketchProc (defineret i myCode.js) til Processing's konstruktøren.
+    var processingInstance = new Processing(canvas, sketchProc); 
+ </script>
+
+
+</html>
